@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > Glassdoor for women
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > Glassdoor is a great starting point for finding the right company, but it doesn't always have the information women care about. 
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > This application will allow women to search for company reviews, salaries, interview tips, work-life balance (including materity leave info) provided by women. Need authentication / login to make sure only women are posting. It will show the percentage of women in management positions and the breakdown of what types of roles women have in the company (a company can be diverse but only have women in admin roles, for example).
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > Companies are becoming more focused on D&I, but they're still not transparent. This application will give women the real picture of what type of treatment they can expect in a company. 
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > Many solutions are focused on calling out the particular men involved - see the #MeToo movement. This solution is designed as a warning system, empowering women to tackle this issue before anything serious happens. 
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > "We need better ways to break down the glass ceiling. Women need a place where they can find out about the experience of other women when assessing a new job. 
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > It's as easy to use as Glassdoor. 
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > "Women care about different things than men in a workplace -- we're looking for work-life balance, fair salaries, and places where we can spend time with coworkers during the day if we have to go pick up our kids at night. We care about women being in management positions and not being interrupted in meetings. This finally gives me a fair picture of how women are treated in a workplace BEFORE I take a job."
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > Submit your workplace tips here. 
