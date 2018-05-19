@@ -1,6 +1,10 @@
-import { React, Component } from 'react';
+import React, { Component } from 'react';
+import TopBar from './TopBar';
+import SearchBar from './SearchBar';
+import BestList from './BestList';
+import Submit from './Submit';
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
 
@@ -9,10 +13,13 @@ class App extends Component {
 
   render() {
     return (
-      <div>Hello World</div>
+      <div>
+        <TopBar />
+        <SearchBar />
+        <BestList />
+        <Submit />
+      </div>
     );
   }
 }
-
-export default App;
 

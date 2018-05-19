@@ -4,24 +4,22 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: ['node_modules'],
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['react', 'es2015', 'env'],
-          },
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'es2015'],
         },
       },
     ],
   },
-  mode: 'development',
-  entry: './client/src/app.js',
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-  },
   resolve: {
     extensions: ['.js', '.jsx'],
   },
+  entry: './client/src/app',
+  output: {
+    filename: 'bundle.js',
+    path: path.join(__dirname, 'public/dist'),
+  },
+  mode: 'development',
 };
