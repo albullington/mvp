@@ -19,13 +19,15 @@ app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);
 });
 
-app.get('search/:query', (req, res) => {
-  const query = req.params;
-  Review.find(`{company: ${query}}`)
+app.get('/:query', (req, res) => {
+  const query = `/${req.params.query}/`;
+  Review.find({})
     .then((data) => {
+      console.log('data found in database', data);
       res.status(200).send(data);
     })
     .catch((err) => {
+      console.log('query received, but not found in db');
       throw err;
     });
 });

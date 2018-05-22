@@ -4,6 +4,7 @@ import axios from 'axios';
 import NavBar from './NavBar';
 import CompanyReviews from './CompanyReviews';
 import Form from './Form';
+import SearchBar from './SearchBar';
 
 class App extends Component {
   constructor() {
@@ -14,19 +15,37 @@ class App extends Component {
       recommend: true,
       interruption: true,
       view: 'home',
-      data: {},
-      query: 'Gutmann',
+      companies: ['Google', 'Slack', 'Pinterest'],
+      query: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.onKeyDown = this.onKeyDown.bind(this);
+    this.onChange = this.onChange.bind(this);
+  }
+
+  componentDidMount() {
+    this.searchCompanies(this.state.query);
+  }
+
+  onChange(event) {
+    this.setState({
+      query: event.target.value,
+    });
+  }
+
+  onKeyDown(event) {
+    this.setState({
+      query: event.target.value,
+    });
   }
 
   handleChange(event) {
-    const target = event.target;
+    const { target } = event;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
+    const { name } = target;
 
     this.setState({
       [name]: value,
@@ -69,24 +88,40 @@ class App extends Component {
   }
 
   searchCompanies(query) {
-    axios.get(`http://localhost:4000/search/${query}`)
+    axios.get(`http://localhost:4000/${query}`)
       .then((res) => {
-        this.setState({
-          data: res,
-        })
-          .catch((err) => {
-            throw err;
-          });
+        const recommendedCompanies = [];
+        res.data.forEach((company) => {
+          if (company.recommend === true && company.company) {
+            recommendedCompanies.push(company.company);
+          }
+        });
+        this.setState({ companies: recommendedCompanies });
+      }).catch((err) => {
+        throw err;
       });
   }
 
   render() {
-    const { view } = this.state;
+    const {
+      view,
+      leadershipLevel,
+      recommend,
+      interruption,
+      query,
+      companies,
+    } = this.state;
+
     if (view === 'home') {
       return (
         <div>
           <NavBar handleClick={this.handleClick} />
-          <CompanyReviews />
+          <SearchBar
+            query={query}
+            onChange={this.onChange}
+            onKeyDown={this.onKeyDown}
+          />
+          <CompanyReviews companies={companies} />
         </div>
       );
     }
@@ -97,9 +132,9 @@ class App extends Component {
           <Form
             handleSubmit={this.handleSubmit}
             handleChange={this.handleChange}
-            leadershipLevel={this.state.leadershipLevel}
-            recommend={this.state.recommend}
-            interruption={this.state.interruption}
+            leadershipLevel={leadershipLevel}
+            recommend={recommend}
+            interruption={interruption}
           />
         </div>
       );
