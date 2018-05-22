@@ -17,14 +17,18 @@ const defaultProps = {
   interruption: true,
 };
 
+const formStyle = {
+  lineHeight: '2.2',
+};
+
 const Form = ({
   handleChange,
   handleSubmit,
   leadershipLevel,
-  interruption,
   recommend,
+  interruption,
 }) => (
-  <form onSubmit={handleSubmit}>
+  <form onSubmit={handleSubmit} style={formStyle}>
     <label htmlFor="leadershipLevel">
       Select your leadership level:
       <select name="leadershipLevel" value={leadershipLevel} onChange={handleChange}>
@@ -46,7 +50,7 @@ const Form = ({
     </label>
     <br />
     <label htmlFor="going">
-      Are you frequently interrupted in the workplace:
+      Are you frequently interrupted in the workplace?
       <input
         name="interruption"
         type="checkbox"
